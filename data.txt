@@ -1,0 +1,4 @@
+{
+	"name": "Akshay Pathare",
+     "countriesVisited" : ["India", "South Africa"]
+}
