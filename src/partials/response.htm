@@ -2,6 +2,7 @@
     <h2 class="label label-success">Response</h2>
     <p ng-hide="responseReceived"> Loading...</p>
     <ul class="list-group" ng-show="responseReceived" ng-style="myStyle">
+        <li class="list-group-item">{{"User Email: "+response.id}}</li>
         <li class="list-group-item">{{"User Name: "+response.name}}</li>
         <li ng-repeat="country in response.countriesVisited" class="list-group-item">{{"Visited: "+country}}</li>
     </ul>

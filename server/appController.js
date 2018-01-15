@@ -14,7 +14,7 @@ exports.readUserJsonForPost = function(req, res) {
     var response = {
         "name": "Akshay Pathare",
         "countriesVisited": ["India", "South Africa"],
-        "id": req.body || []
+        "id": req.body.id || []
     }
 
     res.send(response);

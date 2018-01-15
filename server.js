@@ -2,15 +2,17 @@ var express = require('express'),
     app = express(),
     port = process.env.PORT || 8082,
     bodyParser = require('body-parser'),
-    routes = require('./routes/appRoutes');
+    routes = require('./routes/appRoutes'),
+    cors = require('cors');
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
     next();
 }
 
+app.use(cors({origin: 'http://127.0.0.1:8080'}));
 app.use(allowCrossDomain);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

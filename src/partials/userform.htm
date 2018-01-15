@@ -1,5 +1,5 @@
 <div class="panel-body">
-    <form name="userForm" novalidate ng-submit="submitForm()">
+    <form name="userForm" novalidate ng-submit="submitForm(email)">
         <div class="form-group">
             <label for="inputName">{{"Enter Email ID" | uppercase}}</label>
             <input name="userEmail" type="email" ng-model="email" class="form-control" id="inputName" placeholder="Enter email..." required>

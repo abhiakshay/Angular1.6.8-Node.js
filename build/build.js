@@ -7,9 +7,9 @@ app.controller("appController", ["$scope", function($scope) {
     }
 }]);
 app.controller('formController', ["$scope", "$rootScope", function($scope, $rootScope) {
-    $scope.email = "xyz@gmail.com";
+    $scope.email = "";
     $scope.submitForm = function(val) {
-        $rootScope.$broadcast("onFormSubmit", { data: $scope.email });
+        $rootScope.$broadcast("onFormSubmit", { data: val });
     }
     $rootScope.$on("onResponse", function(event, args) {
         console.log(args.message);
@@ -50,3 +50,16 @@ app.directive('replaceContent', function() {
         }
     }
 });
+app.factory('responseFactory', ["$q", "$timeout", "$http", function($q, $timeout, $http) {
+    return {
+        getUserDetais(email) {
+            //return $http.get('http://127.0.0.1:8082/login');
+            return $http({
+                method: 'POST',
+                url: 'http://127.0.0.1:8082/login',
+                data: { id: email},
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+    }
+}]);
